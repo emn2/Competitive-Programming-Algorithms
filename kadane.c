@@ -1,6 +1,8 @@
 #include <stdio.h>
 #define max(a, b) (a > b ? a : b)
 
+//Maximum Subarray Problem
+
 int kadane(int *v, int n){
     int max_current = v[0], max_global = v[0];
     for(int i = 1; i < n; i++){
