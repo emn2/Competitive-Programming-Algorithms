@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+//Euclidean GCD Algorithm
+
 int iterativeGCD(int a, int b){
   int c = a + b;
     while(c > 0){
