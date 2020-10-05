@@ -2,7 +2,8 @@
 using namespace std;
 typedef pair<int, pair<int, int> >ii;
 
-int *root, *size;
+vector<int> root;
+vector<int> size;
 
 int find(int a){
     if(root[a] == a) return a;
@@ -29,9 +30,8 @@ int main(){
 
     cin >> nodes >> edges;
 
-    root = (int *)malloc(nodes*sizeof(int));
-    size = (int *)malloc(nodes*sizeof(int));
-
+    root.resize(nodes+1);
+    size.resize(nodes+1);
     adj.resize(nodes+1);
 
     for(int i = 0; i < edges; i++){
