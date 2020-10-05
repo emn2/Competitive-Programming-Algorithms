@@ -54,6 +54,9 @@ int main(){
     }
 
     cout << mst_weight << '\n';
+    
+    free(root);
+    free(size);
 
     return 0;
 }
