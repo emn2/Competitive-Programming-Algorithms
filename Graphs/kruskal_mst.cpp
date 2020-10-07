@@ -30,9 +30,9 @@ int main(){
 
     cin >> nodes >> edges;
 
-    root.resize(nodes+1);
-    size.resize(nodes+1);
-    adj.resize(nodes+1);
+    root.resize(nodes);
+    size.resize(nodes);
+    adj.resize(nodes);
 
     for(int i = 0; i < edges; i++){
         int a, b, weight;
@@ -43,8 +43,10 @@ int main(){
 
     sort(adj.begin(), adj.end());
 
-    for (int i = 0; i < nodes; i++) root[i] = i;
-    for (int i = 0; i < nodes; i++) size[i] = 1;
+    for (int i = 0; i < nodes; i++){
+        root[i] = i;
+        size[i] = 1;
+    }
     
     for(auto e: adj){
         if(find(e.second.first) != find(e.second.second)){
