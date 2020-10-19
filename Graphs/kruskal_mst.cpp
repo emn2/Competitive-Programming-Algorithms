@@ -17,7 +17,7 @@ void join(int a, int b){
         if(size[a] < size[b]) root[b] = a;        
         else root[a] = b;
         size[b] += size[a];
-        size[a] += size[b];
+        size[a] = size[b];
     }
 }
 
