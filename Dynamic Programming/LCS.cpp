@@ -1,7 +1,7 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int solve(string s1, string s2, int m, int n){
+int lcs(string s1, string s2, int m, int n){
     int L[m+1][n+1];
     for(int i = 0; i <= m; i++){
         for(int j = 0; j <= n; j++){
@@ -22,7 +22,7 @@ int solve(string s1, string s2, int m, int n){
 int main(){
     string s1, s2;
     while(getline(cin, s1) && getline(cin, s2)){
-        cout << solve(s1, s2, s1.size(), s2.size()) << '\n';
+        cout << lcs(s1, s2, s1.size(), s2.size()) << '\n';
     }
     return 0;
 }
