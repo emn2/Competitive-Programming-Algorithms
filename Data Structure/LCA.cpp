@@ -22,7 +22,7 @@ int lca(int a, int b) {
 	if(depth[b] > depth[a]) swap(a, b);                                         //depth a has to be the higher                               
 
 	for(int i = maxJump - 1; i >= 0; i--) {                                     //deixar na mesma profundidade
-		if(depth[a] - (2*i) >= depth[b]) a = par[a][i];
+		if(depth[a] - (1<<i) >= depth[b]) a = par[a][i];
 	}
 
 	if(a == b) return a;                                                       //Se b for o LCA dos 2
