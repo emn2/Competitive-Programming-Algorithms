@@ -28,8 +28,8 @@ void modify(int p, int val){
 int query(int l, int r){
     int ans = 0;
     for(l += n, r += n; l < r; l /= 2, r /= 2){
-        if(l&1) res += t[l++];
-        if(r&1) res += t[--r];
+        if(l&1) ans += t[l++];
+        if(r&1) ans += t[--r];
     }
     return ans;
 }
