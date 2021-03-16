@@ -4,7 +4,7 @@ typedef long long ll;
 #define max(a, b) ((a > b) ? a : b)
 #define forc(i, n) for(int i = 0; i < int(n); i++)
 
-int n;
+int ROW, COL;
 vector<ll> temp;
 vector<vector<int> > M;
 
@@ -28,17 +28,17 @@ ll kadane2D(){
 
     //Todos os nums sao negativos
     maxSum = temp[0];
-    for(int i = 1; i < n; i++)
+    for(int i = 1; i < ROW; i++)
         maxSum = max(temp[i], maxSum);
     return maxSum;
 }
 
 void solve(){
     ll maxSum = INT64_MIN;
-    forc(l, n){
-        temp.assign(n, 0);
-        for(int r = l; r < n; r++){
-            for(int i = 0; i < n; i++)
+    forc(l, COL){
+        temp.assign(ROW, 0);
+        for(int r = l; r < COL; r++){
+            for(int i = 0; i < ROW; i++)
                 temp[i] += M[i][r];
             ll sum = kadane2D();
             maxSum = max(maxSum, sum);
@@ -51,8 +51,8 @@ int main(){
     ios::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 
-    cin >> n;
-    M.resize(n, vector<int> (n));
+    cin >> ROW >> COL;
+    M.resize(ROW, vector<int> (COL));
     
     for(auto &e: M)
         for(auto &a: e) 
