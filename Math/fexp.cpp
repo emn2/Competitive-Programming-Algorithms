@@ -12,10 +12,10 @@ long long fexp(long long base, long long exp, long long mod){
 
 int main(){
     int t;
-    scanf("%d\n", &t);
+    scanf("%d", &t);
     while(t--){
         long long a, b, r;
-        scanf("%lld %lld\n", &a, &b);
+        scanf("%lld %lld", &a, &b);
         r = fexp(a, b, 1e9+7);
         printf("%lld\n", r);
     }
