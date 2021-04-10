@@ -49,7 +49,7 @@ int32_t main(){
     int q;
     cin >> q;
     for(int i = 1; i <= q; i++){
-        cin >> v[i];
+        cin >> a[i];
     }
     build(1, 1, q);
     return 0;
