@@ -1,5 +1,5 @@
 typedef long long ll;
-cosnt ll INF = 1e18 + 5;
+const ll INF = 1e18 + 5;
 
 int dist[N][N];
 
