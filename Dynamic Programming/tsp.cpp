@@ -1,3 +1,4 @@
+const int LIM = 20;
 ll mask, n, m;
 ll dp[1<<LIM][LIM];
 
