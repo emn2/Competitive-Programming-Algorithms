@@ -1,15 +1,8 @@
 ll mask, n, m;
 ll dp[1<<LIM][LIM];
 
-int numOn(ll mask){
-    int resp = 0;
-    for(int i = 0; i < n; i++)
-        if(mask & (1 << i)) resp++;
-    return resp;
-}
-
 ll tsp(int mask, int last){
-    if(numOn(mask) == m) return 0;
+    if(__builtin_popcountll(mask) == m) return 0;
     if(dp[mask][last] != -1) return dp[mask][last];
     ll ans = 0;
     for(int i = 0; i < n; i++){
