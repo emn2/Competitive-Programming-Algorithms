@@ -33,3 +33,17 @@ int count(string &p){
     }
     return terminal[cur];
 }
+
+//print words with a given prefix
+void print(int cur, string ans){
+    if(terminal[cur]){
+        cout << ans << '\n';
+    }
+    forc(i, 0, 26){
+        if(trie[cur][i] != -1){
+            ans.push_back(i + 'a');
+            print(trie[cur][i], ans);
+            ans.pop_back();
+        }
+    }
+}
