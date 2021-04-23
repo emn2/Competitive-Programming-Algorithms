@@ -1,4 +1,4 @@
-vector<int> prefix_function(string &s){
+vector<int> KMP(string &s){
     int n = s.length();
     vector<int> pi(n);
     for(int i = 1; i < n; i++){
