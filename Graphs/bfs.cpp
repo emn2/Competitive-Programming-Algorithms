@@ -15,7 +15,7 @@ int main(){
     
     q.push(start); //starting point
     ans.push(start);
-    visited[0] = true;
+    visited[start] = true;
 
     while(!q.empty()){
         int current = q.front(); //the current node is the first in the queue
