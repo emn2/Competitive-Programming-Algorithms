@@ -1,12 +1,12 @@
 int n;
-vector<vector<int>> capacity;
-vector<vector<int>> adj;
+vector<vector<int> > capacity;
+vector<vector<int> > adj;
 
 int bfs(int s, int t, vector<int>& parent) {
     fill(parent.begin(), parent.end(), -1);
     parent[s] = -2;
-    queue<pair<int, int>> q;
-    q.push({s, INF});
+    queue<pair<int, int> > q;
+    q.push(make_pair(s, INF));
 
     while (!q.empty()) {
         int cur = q.front().first;
@@ -19,7 +19,7 @@ int bfs(int s, int t, vector<int>& parent) {
                 int new_flow = min(flow, capacity[cur][next]);
                 if (next == t)
                     return new_flow;
-                q.push({next, new_flow});
+                q.push(make_pair(next, new_flow));
             }
         }
     }
