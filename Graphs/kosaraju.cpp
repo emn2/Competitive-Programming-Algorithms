@@ -6,7 +6,7 @@ vector<bool> visited;
 vector<vector<int> > adjList;
 vector<vector<int> > adjListReverse;
 
-void dfs(int u, vector<vector<int> > list){
+void dfs(int u, vector<vector<int> >& list){
     if(visited[u]) return;
     visited[u] = true;
 
