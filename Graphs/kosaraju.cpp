@@ -3,6 +3,8 @@ using namespace std;
 
 int nodes;
 vector<bool> visited;
+vector<int> components;
+vector<vector<int> > scc;
 vector<vector<int> > adjList;
 vector<vector<int> > adjListReverse;
 
