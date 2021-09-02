@@ -1,21 +1,30 @@
 #include "bits/stdc++.h"
 using namespace std;
 
-int nodes;
+int nodes, edges;
 vector<bool> visited;
 vector<int> components;
 vector<vector<int> > scc;
-vector<vector<int> > adjList;
-vector<vector<int> > adjListReverse;
+vector<vector<int> > adj;
+vector<vector<int> > adj_rev;
 
-void dfs(int u, vector<vector<int> >& list){
-    if(visited[u]) return;
-    visited[u] = true;
+void dfs1(int v) {
+    visited[v] = true;
 
-    for(int i = 0; i < list[u].size(); i++){
-        int v = list[u][i];
-        dfs(v, list);
-    }
+    for(auto u : adj[v])
+        if(!visited[u])
+            dfs1(u);
+
+    order.push_back(v);
+}
+
+void dfs2(int v) {
+    visited[v] = true;
+    component.push_back(v);
+
+    for(auto u : adj_rev[v])
+        if(!used[u])
+            dfs2(u);
 }
 
 bool check(){
@@ -30,12 +39,14 @@ bool check(){
 }
 
 int main(){
-    int edges;
+    ios::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
     cin >> nodes >> edges;
 
-    adjList.resize(nodes);
+    adj.resize(nodes);
     visited.resize(nodes);
-    adjListReverse.resize(nodes);
+    adj_rev.resize(nodes);
 
     for(int i = 0; i < edges; i++){
         int u, v;
@@ -44,19 +55,22 @@ int main(){
         adjListReverse[v].push_back(u);
     }
 
-    dfs(0, adjList);
+     used.assign(n, false);
 
-    if(check() == false){
-        cout << "No\n";
-        return 0;
+    for(int i = 0; i < n; i++)
+        if (!used[i])
+            dfs1(i);
+
+    used.assign(n, false);
+    reverse(order.begin(), order.end());
+
+    for(auto v : order){
+        if (!used[v]) {
+            dfs2 (v);
+            scc.push_back(component);
+            component.clear();
+        }
     }
-
-    dfs(0, adjListReverse);
-
-    if(check() == false)
-        cout << "No\n";
-    else 
-        cout << "Yes\n";
 
     return 0;
 }
