@@ -55,17 +55,19 @@ int main(){
         adjListReverse[v].push_back(u);
     }
 
-     used.assign(n, false);
+    visited.assign(nodes, false);
 
-    for(int i = 0; i < n; i++)
-        if (!used[i])
+    for(int i = 0; i < n; i++){
+        if(!used[i]){
             dfs1(i);
+        }
+    }
 
-    used.assign(n, false);
+    visited.assign(nodes, false);
     reverse(order.begin(), order.end());
 
     for(auto v : order){
-        if (!used[v]) {
+        if(!used[v]) {
             dfs2 (v);
             scc.push_back(component);
             component.clear();
