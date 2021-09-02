@@ -3,10 +3,10 @@ using namespace std;
 
 int nodes, edges;
 vector<bool> visited;
-vector<int> components;
 vector<vector<int> > scc;
 vector<vector<int> > adj;
 vector<vector<int> > adj_rev;
+vector<int> order, component;
 
 void dfs1(int v) {
     visited[v] = true;
