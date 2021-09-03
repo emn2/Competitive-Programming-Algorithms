@@ -25,7 +25,7 @@ void dfs2(int v) {
     component.push_back(v);
 
     for(auto u : adj_rev[v])
-        if(!used[u])
+        if(!visited[u])
             dfs2(u);
 }
 
