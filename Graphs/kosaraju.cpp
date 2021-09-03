@@ -2,7 +2,9 @@
 using namespace std;
 
 int nodes, edges;
+vector<int> roots;
 vector<bool> visited;
+vector<int> root_nodes;
 vector<vector<int> > scc;
 vector<vector<int> > adj;
 vector<vector<int> > adj_rev;
@@ -65,12 +67,27 @@ int main(){
 
     visited.assign(nodes, false);
     reverse(order.begin(), order.end());
+    
+    root.assign(nodes, 0);
 
     for(auto v : order){
         if(!used[v]) {
             dfs2 (v);
-            scc.push_back(component);
+            
+            int root = component.front();
+            for (auto u : component) roots[u] = root;
+            root_nodes.push_back(root);
+            
             component.clear();
+        }
+    }
+    
+    for (int v = 0; v < nodes; v++){
+        for (auto u : adj[v]) {
+            int root_v = roots[v], root_u = roots[u];
+
+            if (root_u != root_v)
+                scc[root_v].push_back(root_u);
         }
     }
 
