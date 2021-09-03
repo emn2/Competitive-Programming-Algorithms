@@ -60,7 +60,7 @@ int main(){
     visited.assign(nodes, false);
 
     for(int i = 0; i < n; i++){
-        if(!used[i]){
+        if(!visited[i]){
             dfs1(i);
         }
     }
@@ -71,7 +71,7 @@ int main(){
     root.assign(nodes, 0);
 
     for(auto v : order){
-        if(!used[v]) {
+        if(!visited[v]) {
             dfs2 (v);
             
             int root = component.front();
