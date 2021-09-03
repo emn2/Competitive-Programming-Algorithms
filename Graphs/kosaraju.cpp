@@ -68,7 +68,7 @@ int main(){
     visited.assign(nodes, false);
     reverse(order.begin(), order.end());
     
-    root.assign(nodes, 0);
+    roots.assign(nodes, 0);
 
     for(auto v : order){
         if(!visited[v]) {
