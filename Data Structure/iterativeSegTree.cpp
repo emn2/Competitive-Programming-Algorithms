@@ -28,8 +28,8 @@ void modify(int p, int val){
 int query(int l, int r){
     int ans = 0;
     for(l += n, r += n; l < r; l /= 2, r /= 2){
-        if(l&1) ans += t[l++];
-        if(r&1) ans += t[--r];
+        if(l&1) ans += tree[l++];
+        if(r&1) ans += tree[--r];
     }
     return ans;
 }
@@ -48,13 +48,13 @@ int main(){
 
 void modify(int l, int r, int value) {
   for (l += n, r += n; l < r; l >>= 1, r >>= 1) {
-    if (l&1) t[l++] += value;
-    if (r&1) t[--r] += value;
+    if (l&1) tree[l++] += value;
+    if (r&1) tree[--r] += value;
   }
 }
 
 int query(int p) {
   int res = 0;
-  for (p += n; p > 0; p >>= 1) res += t[p];
+  for (p += n; p > 0; p >>= 1) res += tree[p];
   return res;
 }
