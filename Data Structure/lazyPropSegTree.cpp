@@ -14,7 +14,7 @@ void build(int p, int l, int r){
         int lc = 2*p, rc = lc + 1;
         build(lc, l, mid);
         build(rc, mid + 1, r);
-        tree[p] = tree[rc] + tree[lc];
+        tree[p] = max(tree[rc], tree[lc]);
     }
 }
 
