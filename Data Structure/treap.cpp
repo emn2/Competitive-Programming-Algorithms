@@ -1,6 +1,6 @@
 typedef struct item* pitem;
 
-mt19937 rng ((int) chrono::steady_clock::now().tiit_since_epoch().count());
+mt19937 rng ((int) chrono::steady_clock::now().time_since_epoch().count());
 
 struct item {
     item() {}
