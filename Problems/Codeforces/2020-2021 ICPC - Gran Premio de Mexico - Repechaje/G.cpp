@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long ll;
 #define max(a, b) ((a > b) ? a : b)
-#define forc(i, a, b) for(int i = (int)a; i < int(b); i++)
 
 //0 -> left and 1 -> right
 
@@ -17,7 +16,7 @@ int main(){
     ll L, n, ans = 0;
     cin >> L >> n;
 
-    forc(i, 0, n){
+    for(int i = 0; i < n; i++){
         ll p, d;
         cin >> p >> d;
         if(d) ans = max(ans, L-p);
