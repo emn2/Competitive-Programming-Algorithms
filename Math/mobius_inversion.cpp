@@ -1,6 +1,6 @@
 const int MAXN = 1e5 + 5;
 
-vector<bool> isPrime(MAXN, false);
+vector<bool> isPrime(MAXN, true);
 vector<int> u(MAXN, 1);
 
 for(int i = 2; i < MAXN; i++){
