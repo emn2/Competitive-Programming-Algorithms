@@ -25,23 +25,21 @@ void sieve(){
 	
 	mobius[1] = 1; 
 	
-	for(ll i = 2;i < MAXN;i++){
+	for(ll i = 2; i < MAXN;i++){
             
 		if(isPrime[i]){
-			prime[++cnt_sieve]=i;
+			prime[++cnt_sieve] = i;
 			mobius[i] = -1; 
 		}
     
-		for(ll j = 1;j <= cnt_sieve; j++){ 
+		for(ll j = 1; j <= cnt_sieve; j++){ 
 			if(prime[j]*i >= MAXN) break;
  
-		    isPrime[prime[j]*i] = false;
+		    	isPrime[prime[j]*i] = false;
         
-			if(i % prime[j])
-				 mobius[i*prime[j]] = -mobius[i];
-		
+			if(i % prime[j]) mobius[i*prime[j]] = -mobius[i];
 			else{
-				 mobius [i*prime [j]] = 0;
+				mobius [i*prime[j]] = 0;
 				break;
 			}
 		}
