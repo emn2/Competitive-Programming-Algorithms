@@ -57,7 +57,7 @@ int query(int p, int l, int r, int ql, int qr){
     int lc = 2*p, rc = lc + 1;
 
     int query_left = query(lc, l, mid, ql, min(qr, mid));
-    int query_right = query(rc, mid + 1, r, max(l, mid + 1), qr);
+    int query_right = query(rc, mid + 1, r, max(ql, mid + 1), qr);
 
     return max(query_left, query_right);
 }
