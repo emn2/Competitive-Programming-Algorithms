@@ -13,7 +13,7 @@ class Matrix{
             for(int i = 0; i < m; i++)
                 for(int j = 0; j < m; j++)
                     for(int k = ans.mat[i][j] = 0; k < m; k++)
-                        ans.mat[i][j] = (ans.mat[i][j] + (mat[i][k]%MOD) * (p.mat[k][j]%MOD)) % MOD;
+                        ans.mat[i][j] = (ans.mat[i][j] + 1LL * (mat[i][k]%MOD) * (p.mat[k][j]%MOD)) % MOD;
             return ans;
         }
 };
