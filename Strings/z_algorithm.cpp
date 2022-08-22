@@ -12,7 +12,7 @@ using namespace std;
 //e para determinar z[i] teremos que comparar as substrings caractere
 //por caractere, começando de y-i+1 até y+1.
 
-vector<int> buildZ(string s) { 
+vector<int> buildZ(string &s) { 
     int n = s.size();
     int x = 0, y = 0; //intervalo
 
