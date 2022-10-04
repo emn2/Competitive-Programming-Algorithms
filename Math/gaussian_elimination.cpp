@@ -29,10 +29,10 @@ int gauss(vector<bitset<MAXN>> a, int m) {
         int sum = 0;
         for (int j = 0; j < m; ++j)
             sum ^= ans[j] & a[i][j];
-        if(sum != a[i][m]) return 0;
-    }
+        if(sum != a[i][m]) return 0;    //has no solution
+    }   
     for(int i = 0; i < m; ++i){
-        if(where[i] == -1) return 2;
+        if(where[i] == -1) return 2;    //has infinity solutions
     }
-    return 1;
+    return 1;   //has one solution
 }
