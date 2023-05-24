@@ -1,49 +1,47 @@
-#include "bits/stdc++.h"
-using namespace std;
-typedef long long ll;
-const int ms = 500010;
-#define forc(i, a, b) for(int i = (int)a; i < int(b); i++)
+const int ms = 1e5 + 100;
 
-int trie[ms][26], terminal[ms], z;
+struct Trie{
+    int trie[ms][ALF], terminal[ms], z;
 
-void init(){
-    memset(trie[0], -1, sizeof(trie[0]));
-    z = 1;
-}
+    void Trie(){
+        memset(trie[0], -1, sizeof(trie[0]));
+        z = 1;
+    }
 
-void insert(string &p){
-    int cur = 0;
-    forc(i, 0, p.size()){
-        int id = p[i] - 'a';
-        if(trie[cur][id] == -1){
-            memset(trie[z], -1, sizeof(trie[z]));
-            trie[cur][id] = z++;
+    void insert(string &p){
+        int cur = 0;
+        for(int i = 0; i < p.size(); i++){
+            int id = p[i] - 'a';
+            if(trie[cur][id] == -1){
+                memset(trie[z], -1, sizeof(trie[z]));
+                trie[cur][id] = z++;
+            }
+            cur = trie[cur][id];
         }
-        cur = trie[cur][id];
+        terminal[cur]++;
     }
-    terminal[cur]++;
-}
 
-int count(string &p){
-    int cur = 0;
-    forc(i, 0, p.size()){
-        int id = p[i] - 'a';
-        if(trie[cur][id] == -1) return false;
-        cur = trie[cur][id];
+    int count(string &p){
+        int cur = 0;
+        for(int i = 0; i < p.size(); i++){
+            int id = p[i] - 'a';
+            if(trie[cur][id] == -1) return false;
+            cur = trie[cur][id];
+        }
+        return terminal[cur];
     }
-    return terminal[cur];
-}
 
-//print words with a given prefix
-void print(int cur, string ans){
-    if(terminal[cur]){
-        cout << ans << '\n';
-    }
-    forc(i, 0, 26){
-        if(trie[cur][i] != -1){
-            ans.push_back(i + 'a');
-            print(trie[cur][i], ans);
-            ans.pop_back();
+    //print words with a given prefix
+    void print(int cur, string ans){
+        if(terminal[cur]){
+            cout << ans << '\n';
+        }
+        for(int i = 0; i < ALF; i++){
+            if(trie[cur][i] != -1){
+                ans.push_back(i + 'a');
+                print(trie[cur][i], ans);
+                ans.pop_back();
+            }
         }
     }
-}
+};
