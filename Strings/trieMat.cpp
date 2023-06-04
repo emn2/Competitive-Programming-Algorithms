@@ -3,7 +3,7 @@ const int ms = 1e5 + 100;
 struct Trie{
     int trie[ms][ALF], terminal[ms], z;
 
-    void Trie(){
+    Trie(){
         memset(trie[0], -1, sizeof(trie[0]));
         z = 1;
     }
