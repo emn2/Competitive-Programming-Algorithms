@@ -1,3 +1,5 @@
+#define int long long
+
 int N, MOD;
 int fact[MAXN], fact_inv[MAXN], inv[MAXN];
 
