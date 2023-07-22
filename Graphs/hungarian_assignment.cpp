@@ -1,3 +1,4 @@
+// matrix A should be 1-based but N and M are 0-based
 int hungarian(vector<vector<int> > &A, int n, int m){
     vector<int> u(n+1), v(m+1), p(m+1), way(m+1);
 
@@ -5,7 +6,7 @@ int hungarian(vector<vector<int> > &A, int n, int m){
         p[0] = i;
         int j0 = 0;
         vector<int> minv (m+1, INF);
-        vector<char> used (m+1, false);
+        vector<bool> used (m+1, false);
 
         do{
             used[j0] = true;
